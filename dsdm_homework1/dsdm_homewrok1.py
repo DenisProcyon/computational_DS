@@ -1,3 +1,50 @@
+#Excercise 1 
+def triple(a):
+    x=a*3
+    return x
+result=triple(4)
+print(result)
+#Exercise 2
+def subtract(a,b):
+    x=b-a
+    return x
+result=subtract(3,6)
+print(result)
+
+#Exercise 3
+list_tuple=[('cat',3),('dog',5.1)]
+def dictionary_maker(list_tuple):
+    dictionary={}
+    for key, value in list_tuple:
+        dictionary[key]=value
+    return dictionary
+result=dictionary_maker(list_tuple)
+print(result)  
+
+#Exercise 4
+# Now, imagine you are given data from a website that
+# has people's CVs. The data comes
+# as a list of dictionaries and each
+# dictionary looks like this:
+#
+# { 'user': 'george', 'jobs': ['bar', 'baz', 'qux']}
+# e.g. [{'user': 'john', 'jobs': ['analyst', 'engineer']},
+#       {'user': 'jane', 'jobs': ['finance', 'software']}]
+# we will refer to this as a "CV".
+
+def has_experience_as(list_cv,job_title):
+    result=[]
+    for x in list_cv:
+        if job_title in x['jobs']:
+            result.append(x['user'])
+    return result
+
+cv= [{'user': 'john', 'jobs': ['analyst', 'engineer']},
+      {'user': 'jane', 'jobs': ['finance', 'software']},
+      {'user':'jessica', 'jobs':['finance','analyst']}]
+finance_people=has_experience_as(cv, 'finance')
+print(finance_people)
+
 
 #
 # 5)
@@ -51,6 +98,18 @@ print(most_popular_job(cv_data=[{'user': 'john', 'jobs': ['analyst', 'engineer']
                           {'user': '2', 'jobs': ['finance',]},
                           {'user': '3', 'jobs': ['finance']}]))
 
+# 7)
+def total_registered_cases(covid_cases,country):
+    for key, value in covid_cases.items():
+        if country == key:
+            return sum(value)
+    else:
+        return 'No such country registered'
+
+covid={'Spain': [4, 8, 2, 0, 1], 'France': [2, 3, 6],
+       'Italy': [6, 8, 1, 7]}
+cases=total_registered_cases(covid,'Spain')
+print(cases)
 
 
 ##############
